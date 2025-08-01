@@ -22,7 +22,7 @@ jobs:
       - name: Golangci lint
         uses: golangci/golangci-lint-action@v4
         with:
-          version: v2
+          version: v2.3.0
           args: -v --verbose
           skip-cache: true
   test:
