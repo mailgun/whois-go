@@ -1,6 +1,6 @@
 module github.com/mailgun/whois-go
 
-go 1.21
+go 1.24
 
 require (
 	github.com/likexian/gokit v0.25.15
