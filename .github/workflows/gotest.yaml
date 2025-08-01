@@ -24,6 +24,7 @@ jobs:
         with:
           version: latest
           args: -v
+          skip-cache: true
   test:
     strategy:
       fail-fast: false

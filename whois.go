@@ -130,7 +130,9 @@ func (c *Client) SetDisableReferralChain(disabled bool) *Client {
 	return c
 }
 
-//nolint:cyclop // Whois do the whois query and returns whois information
+// Whois do the whois query and returns whois information
+//
+//nolint:cyclop
 func (c *Client) Whois(domain string, servers ...string) (result string, err error) {
 	start := time.Now()
 	defer func() {
@@ -205,7 +207,9 @@ func (c *Client) Whois(domain string, servers ...string) (result string, err err
 	return
 }
 
-//nolint:cyclop // rawQuery do raw query to the server
+// rawQuery do raw query to the server
+//
+//nolint:cyclop
 func (c *Client) rawQuery(domain, server, port string) (string, error) {
 	start := time.Now()
 
