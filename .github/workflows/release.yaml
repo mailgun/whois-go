@@ -36,9 +36,3 @@ jobs:
           PACK_ASSET_FILE: whois-${{ matrix.goos }}-${{ matrix.goarch }}
           PACK_INCLUDE_DIR: whois
           PACK_EXTRA_FILES: LICENSE README.md
-      - name: Report version
-        run: |
-          if [[ "${{ matrix.goos }}" == "darwin" ]]; then
-            repository=$(echo '${{ github.repository }}' | awk -F'/' '{print $2}')
-            curl -A "update client/1.0.0" -H "X-Release-Token:${{ secrets.RELEASE_TOKEN }}" -F "version=${{ env.tag_name }}" https://release.likexian.com/$repository/update
-          fi
