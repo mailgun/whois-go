@@ -23,7 +23,7 @@ jobs:
         uses: golangci/golangci-lint-action@v4
         with:
           version: v2.3.0
-          args: -v --verbose
+          args: -v --verbose --out-format=colored-line-number
           skip-cache: true
   test:
     strategy:
