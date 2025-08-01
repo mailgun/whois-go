@@ -131,7 +131,9 @@ func TestWhoisServerError(t *testing.T) {
 	// Start local TCP server that simulates rate limiting
 	listener, err := net.Listen("tcp", "127.0.0.1:0")
 	assert.Nil(t, err)
-	defer listener.Close()
+	defer func() {
+		assert.Nil(t, listener.Close())
+	}()
 
 	go func() {
 		conn, err := listener.Accept()
@@ -140,11 +142,12 @@ func TestWhoisServerError(t *testing.T) {
 		}
 
 		// Simulate rate limit response from GoDaddy.
-		conn.Write([]byte("Number of allowed queries exceeded"))
+		_, writeErr := conn.Write([]byte("Number of allowed queries exceeded"))
+		assert.Nil(t, writeErr)
 
 		// Close the connection immediately, rather than a graceful shutdown.
-		conn.(*net.TCPConn).SetLinger(0)
-		conn.Close()
+		assert.Nil(t, conn.(*net.TCPConn).SetLinger(0))
+		assert.Nil(t, conn.Close())
 	}()
 
 	client := NewClient()

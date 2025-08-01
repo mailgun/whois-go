@@ -130,7 +130,7 @@ func (c *Client) SetDisableReferralChain(disabled bool) *Client {
 	return c
 }
 
-// Whois do the whois query and returns whois information
+//nolint:cyclop // Whois do the whois query and returns whois information
 func (c *Client) Whois(domain string, servers ...string) (result string, err error) {
 	start := time.Now()
 	defer func() {
@@ -205,7 +205,7 @@ func (c *Client) Whois(domain string, servers ...string) (result string, err err
 	return
 }
 
-// rawQuery do raw query to the server
+//nolint:cyclop // rawQuery do raw query to the server
 func (c *Client) rawQuery(domain, server, port string) (string, error) {
 	start := time.Now()
 
@@ -232,7 +232,9 @@ func (c *Client) rawQuery(domain, server, port string) (string, error) {
 		return "", fmt.Errorf("whois: connect to whois server failed: %w", err)
 	}
 
-	defer conn.Close()
+	defer func() {
+		_ = conn.Close()
+	}()
 	elapsed := time.Since(start)
 
 	if c.useAbsoluteTimeout {

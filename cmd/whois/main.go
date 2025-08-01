@@ -17,6 +17,7 @@
  * https://www.likexian.com/
  */
 
+// Package main queries domain, IP, and ASN registration information.
 package main
 
 import (

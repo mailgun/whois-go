@@ -17,6 +17,7 @@
  * https://www.likexian.com/
  */
 
+// Package whois defines error types returned by WHOIS query operations.
 package whois
 
 import "errors"
