@@ -1,10 +1,9 @@
 # Whois
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![GoDoc](https://pkg.go.dev/badge/github.com/likexian/whois.svg)](https://pkg.go.dev/github.com/likexian/whois)
-[![Go Report Card](https://goreportcard.com/badge/github.com/likexian/whois)](https://goreportcard.com/report/github.com/likexian/whois)
-[![Build Status](https://github.com/likexian/whois/actions/workflows/gotest.yaml/badge.svg)](https://github.com/likexian/whois/actions/workflows/gotest.yaml)
-[![Code Cover](https://release.likexian.com/whois/coverage.svg)](https://github.com/likexian/whois/actions/workflows/gotest.yaml)
+[![GoDoc](https://pkg.go.dev/badge/github.com/mailgun/whois-go.svg)](https://pkg.go.dev/github.com/mailgun/whois-go)
+
+**This is a fork of [github.com/likexian/whois](https://github.com/likexian/whois) maintained by Mailgun.**
 
 Whois is a simple Go module for domain and ip whois information query.
 
@@ -19,20 +18,20 @@ Or you can do development by using this golang module as below.
 ## Installation
 
 ```shell
-go get -u github.com/likexian/whois
+go get -u github.com/mailgun/whois-go
 ```
 
 ## Importing
 
 ```go
 import (
-    "github.com/likexian/whois"
+    "github.com/mailgun/whois-go"
 )
 ```
 
 ## Documentation
 
-Visit the docs on [GoDoc](https://pkg.go.dev/github.com/likexian/whois)
+Visit the docs on [GoDoc](https://pkg.go.dev/github.com/mailgun/whois-go)
 
 ## Example
 
@@ -79,12 +78,17 @@ Please refer to [whois-parser](https://github.com/likexian/whois-parser)
 
 ## License
 
-Copyright 2014-2024 [Li Kexian](https://www.likexian.com/)
+Copyright 2014-2025 [Li Kexian](https://www.likexian.com/)  
+Copyright 2019-2025 Mailgun Technologies, Inc.
 
 Licensed under the Apache License 2.0
+
+## Original Repository
+
+This is a fork of the original [github.com/likexian/whois](https://github.com/likexian/whois) repository. For the original implementation and more information, please visit the upstream repository.
 
 ## Donation
 
 If this project is helpful, please share it with friends.
 
-If you want to thank me, you can [give me a cup of coffee](https://www.likexian.com/donate/).
+If you want to thank the original author, you can [give Li Kexian a cup of coffee](https://www.likexian.com/donate/).
