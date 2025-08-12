@@ -43,6 +43,10 @@ jobs:
           go-version: ${{ matrix.go }}
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Clear module cache
+        run: |
+          go clean -modcache
+          go mod download
       - name: GoTest code
         run: |
           sudo go test -race -coverprofile="coverage.txt" -covermode=atomic ./...
