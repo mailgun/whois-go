@@ -78,14 +78,10 @@ Please refer to [whois-parser](https://github.com/likexian/whois-parser)
 
 ## License
 
-Copyright 2014-2025 [Li Kexian](https://www.likexian.com/)  
+Copyright 2014-2025 [Li Kexian](https://www.likexian.com/)
 Copyright 2019-2025 Mailgun Technologies, Inc.
 
 Licensed under the Apache License 2.0
-
-## Original Repository
-
-This is a fork of the original [github.com/likexian/whois](https://github.com/likexian/whois) repository. For the original implementation and more information, please visit the upstream repository.
 
 ## Donation
 
