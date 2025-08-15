@@ -11,14 +11,14 @@ Whois is a simple Go module for domain and ip whois information query.
 
 All of domain, IP include IPv4 and IPv6, ASN are supported.
 
-You can directly using the binary distributions whois, follow [whois release tool](cmd/whois).
+You can directly use the binary distributions of whois by following the [whois release tool](whois).
 
-Or you can do development by using this golang module as below.
+Or you can develop by using this golang module as below.
 
 ## Installation
 
 ```shell
-go get -u github.com/mailgun/whois-go
+go get github.com/mailgun/whois-go
 ```
 
 ## Importing
