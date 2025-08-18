@@ -1,0 +1,50 @@
+# gotest.yaml
+# Maintainer: https://www.likexian.com
+# Licensed under the Apache License 2.0
+
+name: GoTest
+
+on:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install golangci-lint v2.3.0
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.3.0
+      - name: Run golangci-lint
+        run: |
+          golangci-lint run -v --verbose
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        go: [1.19.x, 1.20.x, 1.21.x, 1.22.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: GoTest code
+        run: |
+          sudo go test -race -coverprofile="coverage.txt" -covermode=atomic ./...
+          coverage=$(go tool cover -func=coverage.txt | grep total | grep -Eo '[0-9]+\.[0-9]+')
+          echo "{\"coverage\": $coverage}"
